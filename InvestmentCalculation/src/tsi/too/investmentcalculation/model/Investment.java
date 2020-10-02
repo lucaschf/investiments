@@ -16,14 +16,14 @@ public abstract class Investment{
 	private float rate;
 	
 	public Investment(String name, String rating, boolean fgcProtection, Type type, float investedValue,
-			LocalDate investedOn, LocalDate rescueDate, int deadline, float rate) {
+			LocalDate investimentDate, LocalDate rescueDate, int deadline, float rate) {
 		super();
 		this.name = name;
 		this.rating = rating;
 		this.protectedFgc = fgcProtection;
 		this.type = type;
 		this.investedValue = investedValue;
-		this.investimentDate = investedOn;
+		this.investimentDate = investimentDate;
 		this.rescueDate = rescueDate;
 		this.deadline = deadline;
 		this.rate = rate;
@@ -71,13 +71,13 @@ public abstract class Investment{
 		return (getIncomeTaxRate() / 100) * calculateCumulativeGrossValue();
 	}
 	
-	double getMonthlyRate(){
+	private double getMonthlyRate(){
 		var t = Math.pow((1 + getRate() / 100.0), (1.0 / 12.0)) -1;
 		return t * 100;
 	}
 	
-	private int getDeadLineInDays() {
-		return getDeadline() / 30;
+	protected int getDeadLineInDays() {
+		return getDeadline() * 30;
 	}
 	
 	public double calculateCumulativeGrossValue() {

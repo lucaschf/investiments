@@ -43,7 +43,7 @@ public class InvestimentController {
 						split[3].equalsIgnoreCase("sim"), // fgcProtection
 						StringExt.toInt(split[4]), // deadline
 						StringExt.toFloat(split[5].replace(".", "").replace(",", ".")), // investedValue
-						StringExt.toFloat(split[6].replace(".", "").replace(",", ".").replace("%","")), // rate
+						StringExt.toFloat(split[6].replace("%","")), // rate
 						StringExt.toBrazilianLocalDateOrNull(split[7]), // investimentDate
 						StringExt.toBrazilianLocalDateOrNull(split[8]) // rescueDate
 						));

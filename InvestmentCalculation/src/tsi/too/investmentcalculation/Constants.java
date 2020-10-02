@@ -16,11 +16,12 @@ public interface Constants {
 	String RATE_OF_RETURN_PER_YEAR = "Taxa de rentabilidade ao ano(a.a.)";
 	String DATE = "Data";
 	String RESCUE_DATE = "Data de resgate";
-	String INCOME_TAX_RATE = "taxa de Imposto de Renda (IR)";
-	String IR_VALUE = "valor do IR";
+	String INCOME_TAX_RATE = "Taxa de Imposto de Renda (IR)";
+	String IR_VALUE = "Valor do IR";
 	String CUMULATIVE_GROSS_AMOUNT = "Valor bruto acumulado";
 	String CUMULATIVE_LIQUID_VALUE = "Valor líquido acumulado";
 	String GROSS_INCOME = "Rendimento bruto";
 	String LIQUID_INCOME = "Rendimento líquido";
 	String INVESTIMENTS = "Investimentos";
+	String MONTHS   = "meses";
 }

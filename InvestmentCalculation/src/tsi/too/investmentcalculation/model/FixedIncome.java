@@ -2,6 +2,8 @@ package tsi.too.investmentcalculation.model;
 
 import java.time.LocalDate;
 
+import tsi.too.investmentcalculation.Constants;
+
 public class FixedIncome extends Investment {
 	// Income Tax referring to the return on an investment of up to 180 days
 	public static final double INCOME_TAX_RATE_22_5 = 22.5;
@@ -31,7 +33,7 @@ public class FixedIncome extends Investment {
 
 	@Override
 	public double getIncomeTaxRate() {
-		int days = getDeadline() / 30;
+		int days = getDeadLineInDays();
 		
 		if(days > 720)
 			return INCOME_TAX_RATE_15;
@@ -43,5 +45,20 @@ public class FixedIncome extends Investment {
 			return INCOME_TAX_RATE_20;
 		
 		return INCOME_TAX_RATE_22_5;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s: %s; %s: %s; %s: %1.2f; %s %d %s",
+				getName(), 
+				getRating(), 
+				Constants.FGC_PROTECTION, 
+				(isProtectedFgc() ? Constants.YES : Constants.NO), 
+				Constants.INCOME_TAX_RATE,
+				getIncomeTaxRate(),
+				Constants.DEADLINE, 
+				getDeadline(), 
+				Constants.MONTHS
+		);
 	}
 }

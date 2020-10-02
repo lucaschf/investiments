@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public abstract class StringExt {
-
     public static String removeLastChar (final String source) {
         return source.replaceFirst(".$", "");
     }
@@ -84,7 +83,7 @@ public abstract class StringExt {
 	 */
     public static LocalDate toBrazilianLocalDateOrNull(String s) {
 		try {
-			DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			DateTimeFormatter formater = DateTimeFormatter.ofPattern(LocalDateTimeExt.BRAZILIAN_DATE_PATTERN);
 			return LocalDate.parse(s, formater);
 		}catch (Exception e) {
 			return null;
