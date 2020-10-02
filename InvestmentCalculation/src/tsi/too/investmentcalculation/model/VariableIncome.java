@@ -6,9 +6,6 @@ import tsi.too.investmentcalculation.Constants;
 
 
 public class VariableIncome extends Investment {
-	// Income Tax calculated on income.
-	public static final double INCOME_TAX_RATE = 15.0;
-	
 	public VariableIncome(
 			String name, 
 			String rating, 
@@ -24,8 +21,8 @@ public class VariableIncome extends Investment {
 	}
 	
 	@Override
-	public double getIncomeTaxRate() {
-		return INCOME_TAX_RATE;
+	public IncomeTaxRate getIncomeTaxRate() {
+		return IncomeTaxRate.VARIABLE;
 	}
 	
 	@Override

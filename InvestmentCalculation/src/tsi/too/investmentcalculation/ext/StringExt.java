@@ -37,6 +37,7 @@ public abstract class StringExt {
     
     /**
      * Parses the string as a [Double] number and returns the result.
+     * 
      * @param str the string to be parsed.
      * @return the double value represented by the string or zero if the string cannot be parsed.
      */
@@ -50,6 +51,7 @@ public abstract class StringExt {
 
     /**
      * Parses the string as a [float] number and returns the result.
+     * 
      * @param str the string to be parsed.
      * @return the double value represented by the string or zero if the string cannot be parsed.
      */
@@ -63,8 +65,8 @@ public abstract class StringExt {
 
     /**
      * Parses the string as a [BigDecimal] number and returns the result.
+     * 
      * @param str the string to be parsed.
-     *
      * @return the double value represented by the string or zero if the string cannot be parsed.
      */
     public static BigDecimal toBigDecimal(final String str) {

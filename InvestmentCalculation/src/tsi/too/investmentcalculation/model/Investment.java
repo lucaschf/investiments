@@ -65,7 +65,7 @@ public abstract class Investment{
 		return rate;
 	}
 
-	public abstract double getIncomeTaxRate();
+	public abstract IncomeTaxRate getIncomeTaxRate();
 		
 	public double calculateCumulativeGrossValue() {
 		var vp = getInvestedValue();
@@ -81,7 +81,7 @@ public abstract class Investment{
 	}		
 	
 	public double getIncomeTaxValue() {
-		return (getIncomeTaxRate() / 100) * getCumulativeGrossIncome();
+		return (getIncomeTaxRate().getValue() / 100) * getCumulativeGrossIncome();
 	}
 	
 	private double getMonthlyRate(){
@@ -100,6 +100,13 @@ public abstract class Investment{
 	public double calculateCumulativeLiquidValue() {
 		return calculateCumulativeGrossValue() - getIncomeTaxValue();
 	}
+	
+	@Override
+	public String toString() {
+		return "Investiment {name= " + name + ", rating= " + rating + ", fgcProtection= " + protectedFgc + ", type= "
+				+ type + ", investedValue= " + investedValue + ", investimentDate= " + investimentDate
+				+ ", rescueDate= " + rescueDate + ", deadline= " + deadline + ", rate= " + rate + "}";
+	}	
 	
 	public enum Type {
 		FIXED_INCOME(1, Constants.FIXED_INCOME, Constants.FIXED_INCOME_INITIALS),
@@ -139,11 +146,4 @@ public abstract class Investment{
 			throw new IllegalArgumentException("No such type");
 		}
 	}
-
-	@Override
-	public String toString() {
-		return "Investiment {name= " + name + ", rating= " + rating + ", fgcProtection= " + protectedFgc + ", type= "
-				+ type + ", investedValue= " + investedValue + ", investimentDate= " + investimentDate
-				+ ", rescueDate= " + rescueDate + ", deadline= " + deadline + ", rate= " + rate + "}";
-	}	
 }

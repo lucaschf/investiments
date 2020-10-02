@@ -79,7 +79,7 @@ public class InvestimentTableModel extends AbstractTableModel{
 					return "-";
 				}
 			case INCOME_TAX_RATE:
-				return String.format("%1.2f%%", investiment.getIncomeTaxRate());
+				return String.format("%1.2f%%", investiment.getIncomeTaxRate().getValue());
 			case IR_VALUE:
 				return NumberExt.toBrazilianCurrency(investiment.getIncomeTaxValue());
 			case CUMULATIVE_GROSS_AMOUNT:

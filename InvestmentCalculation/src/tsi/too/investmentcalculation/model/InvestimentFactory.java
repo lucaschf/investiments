@@ -1,8 +1,8 @@
 package tsi.too.investmentcalculation.model;
 
 import java.time.LocalDate;
-import java.time.Period;
 
+import tsi.too.investmentcalculation.ext.LocalDateTimeExt;
 import tsi.too.investmentcalculation.model.Investment.Type;
 
 public abstract class InvestimentFactory {
@@ -22,7 +22,7 @@ public abstract class InvestimentFactory {
 		}
 		
 		if(type == Type.VARIABLE_INCOME) {
-			var viDeadline = Period.between(investimentDate, rescueDate).getMonths();
+			var viDeadline = LocalDateTimeExt.getIntervalInMonths(investimentDate, rescueDate);
 			return new VariableIncome(name, rating, fgcProtection, investedValue, investimentDate, rescueDate, viDeadline, rate); 
 		}
 		
