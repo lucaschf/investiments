@@ -55,7 +55,6 @@ public class InvestimentTableModel extends AbstractTableModel{
 	@Override
 	public Object getValueAt(int row, int col) {
 		var investiment = investiments.get(row);
-		
 		switch(getColumnName(col)) {
 			case TYPE:
 				return investiment.getType().getInitials();
@@ -66,8 +65,6 @@ public class InvestimentTableModel extends AbstractTableModel{
 			case FGC_PROTECTION: 
 				return investiment.isProtectedFgc() ? YES : NO;
 			case DEADLINE:
-				if(investiment instanceof VariableIncome)
-					return "-";
 				return String.format("%d %s", investiment.getDeadline(), Constants.MONTHS);
 			case INVESTED_VALUE:
 				return NumberExt.toBrazilianCurrency(investiment.getInvestedValue());				
@@ -94,6 +91,7 @@ public class InvestimentTableModel extends AbstractTableModel{
 			case LIQUID_INCOME:
 				return NumberExt.toBrazilianCurrency(investiment.getCumulativeLiquidValue());
 			default:
+				
 				return null;
 		}
 	}

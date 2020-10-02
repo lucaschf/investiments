@@ -1,6 +1,7 @@
 package tsi.too.investmentcalculation.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import tsi.too.investmentcalculation.model.Investment.Type;
 
@@ -21,7 +22,8 @@ public abstract class InvestimentFactory {
 		}
 		
 		if(type == Type.VARIABLE_INCOME) {
-			return new VariableIncome(name, rating, fgcProtection, investedValue, investimentDate, rescueDate, deadline, rate); 
+			var viDeadline = Period.between(investimentDate, rescueDate).getMonths();
+			return new VariableIncome(name, rating, fgcProtection, investedValue, investimentDate, rescueDate, viDeadline, rate); 
 		}
 		
 		throw new IllegalArgumentException("No such type");

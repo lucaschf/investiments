@@ -6,7 +6,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		String dataSource[] ={
-				"RF;CDB Original;AAA;sim;18; 2.000,00 ;10%;14/01/2018;-" ,
+				"RF;CDB Original;AAA;sim;18;2.000,00;10%;14/01/2018;-" ,
 				"RF;Tesouro Direto;B+;não;24; 1.500,00 ;9.5%;14/02/2018;-" ,
 				"RF;LC Pernambucanas;AA;sim;36; 5.000,00 ;10.6%;14/03/2018;-" ,
 				"RF;CDB PAN;BB+;sim;36; 4.500,00 ;11%;14/04/2018;-;" ,

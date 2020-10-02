@@ -16,7 +16,7 @@ public abstract class StringExt {
      */
     public static long toLong(final String str) {
         try {
-            return Long.parseLong(str);
+            return Long.parseLong(str.trim());
         } catch (NumberFormatException ex) {
             return 0;
         }
@@ -29,7 +29,7 @@ public abstract class StringExt {
      */
     public static int toInt(final String str) {
         try {
-            return Integer.parseInt(str);
+            return Integer.parseInt(str.trim());
         } catch (NumberFormatException ex) {
             return 0;
         }
@@ -42,7 +42,7 @@ public abstract class StringExt {
      */
     public static double toDouble(final String str) {
     	try {
-    		return Double.parseDouble(str);
+    		return Double.parseDouble(str.trim());
     	} catch (NumberFormatException ex) {
     		return 0;
     	}
@@ -55,7 +55,7 @@ public abstract class StringExt {
      */
     public static float toFloat(final String str) {
         try {
-            return Float.parseFloat(str);
+            return Float.parseFloat(str.trim());
         } catch (NumberFormatException ex) {
             return 0;
         }
@@ -69,7 +69,7 @@ public abstract class StringExt {
      */
     public static BigDecimal toBigDecimal(final String str) {
         try {
-            return new BigDecimal(str);
+            return new BigDecimal(str.trim());
         } catch (NumberFormatException ex) {
             return BigDecimal.ZERO;
         }
@@ -84,7 +84,7 @@ public abstract class StringExt {
     public static LocalDate toBrazilianLocalDateOrNull(String s) {
 		try {
 			DateTimeFormatter formater = DateTimeFormatter.ofPattern(LocalDateTimeExt.BRAZILIAN_DATE_PATTERN);
-			return LocalDate.parse(s, formater);
+			return LocalDate.parse(s.trim(), formater);
 		}catch (Exception e) {
 			return null;
 		}

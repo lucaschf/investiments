@@ -66,26 +66,31 @@ public abstract class Investment{
 	}
 
 	public abstract double getIncomeTaxRate();
+		
+	public double calculateCumulativeGrossValue() {
+		var vp = getInvestedValue();
+		var t = getMonthlyRate();
+		var p = getDeadline();
+		var vf = vp * Math.pow(1 + t, p);
+		
+		return vf; 
+	}
+		
+	public double getCumulativeGrossIncome() {
+		return calculateCumulativeGrossValue() - getInvestedValue();
+	}		
 	
 	public double getIncomeTaxValue() {
-		return (getIncomeTaxRate() / 100) * calculateCumulativeGrossValue();
+		return (getIncomeTaxRate() / 100) * getCumulativeGrossIncome();
 	}
 	
 	private double getMonthlyRate(){
 		var t = Math.pow((1 + getRate() / 100.0), (1.0 / 12.0)) -1;
-		return t * 100;
+		return t;
 	}
 	
 	protected int getDeadLineInDays() {
 		return getDeadline() * 30;
-	}
-	
-	public double calculateCumulativeGrossValue() {
-		return getInvestedValue() * Math.pow(1 + getMonthlyRate(), getDeadLineInDays());
-	}
-	
-	public double getCumulativeGrossIncome() {
-		return calculateCumulativeGrossValue() - getInvestedValue();
 	}
 	
 	public double getCumulativeLiquidValue() {
