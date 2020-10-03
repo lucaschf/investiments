@@ -5,7 +5,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public abstract class LocalDateTimeExt {
-	public static final String BRAZILIAN_DATE_PATTERN = "dd/MM/yyy";
+	public static final String BRAZILIAN_DATE_PATTERN = "dd/MM/yyyy";
 
 	public static String toBrazilianDateString(final LocalDate date) {
 		return date.format(DateTimeFormatter.ofPattern(BRAZILIAN_DATE_PATTERN));
