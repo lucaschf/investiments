@@ -18,12 +18,30 @@ public abstract class InvestimentFactory {
 			LocalDate rescueDate			
 		) throws IllegalArgumentException{
 		if(type == Type.FIXED_INCOME) {
-			return new FixedIncome(name, rating, fgcProtection, investedValue, investimentDate, rescueDate, deadline, rate);
+			return new FixedIncome(
+					name,
+					rating, 
+					fgcProtection, 
+					investedValue, 
+					investimentDate,
+					rescueDate,
+					deadline, 
+					rate
+			);
 		}
 		
 		if(type == Type.VARIABLE_INCOME) {
 			var viDeadline = LocalDateTimeExt.getIntervalInMonths(investimentDate, rescueDate);
-			return new VariableIncome(name, rating, fgcProtection, investedValue, investimentDate, rescueDate, viDeadline, rate); 
+			return new VariableIncome(
+					name,
+					rating,
+					fgcProtection,
+					investedValue,
+					investimentDate,
+					rescueDate,
+					viDeadline,
+					rate
+			); 
 		}
 		
 		throw new IllegalArgumentException("No such type");

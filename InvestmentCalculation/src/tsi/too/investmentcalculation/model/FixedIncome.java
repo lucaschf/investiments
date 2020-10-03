@@ -16,7 +16,17 @@ public class FixedIncome extends Investment {
 			float rate
 			) {
 
-		super(name, rating, fgcProtection, Type.FIXED_INCOME, investedValue, investimentDate, rescueDate, deadline, rate);
+		super(
+				name,
+				rating,
+				fgcProtection,
+				Type.FIXED_INCOME, 
+				investedValue, 
+				investimentDate, 
+				rescueDate != null ? rescueDate : investimentDate.plusMonths(deadline),
+				deadline, 
+				rate
+			);
 	}	
 
 	@Override
