@@ -23,7 +23,7 @@ public class FixedIncome extends Investment {
 				Type.FIXED_INCOME, 
 				investedValue, 
 				investimentDate, 
-				rescueDate != null ? rescueDate : investimentDate.plusMonths(deadline),
+				rescueDate != null ? rescueDate : investimentDate.plusDays(deadline * 30),
 				deadline, 
 				rate
 			);
